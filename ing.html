@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我与高高的一周年</title>
+    <link rel="shortcut icon" href="imgs/bitbug_favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        *{
+            border: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="imgs/heart.png" width="25px" height="25px">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">LOVE<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">爱之初遇见</a></li>
+                <li class="active"><a href="ing.html">爱之进行时</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<ul id="time">
+    <li id="day"></li>
+    <li id="hour"></li>
+    <li id="min"></li>
+    <li id="sec"></li>
+</ul>
+<canvas></canvas>
+<script src="jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    function show(){
+    MemorialDay=new Date("November 25,2017");
+    today=new Date();
+    // console.log(today.getTime());
+    // console.log(MemorialDay.getTime());
+    timeold=(today.getTime()-MemorialDay.getTime());
+    sectimeold=timeold/1000;
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000;
+    e_daysold=timeold/msPerDay;
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=Math.floor(e_hrsold);
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=Math.floor((e_hrsold-hrsold)*60);
+    seconds=Math.floor((e_minsold-minsold)*60);
+    // console.log(daysold,hrsold,minsold,seconds);
+    var day=document.getElementById('day');
+    var hour=document.getElementById('hour');
+    var min=document.getElementById('min');
+    var sec=document.getElementById('sec');
+    day.innerHTML=daysold;
+    hour.innerHTML=hrsold;
+    min.innerHTML=minsold;
+    sec.innerHTML=seconds;
+    }
+    setInterval(function () {
+        show()
+    },1000);
+</script>
+</body>
+</html>
