@@ -12,6 +12,48 @@
             border: 0;
             margin: 0;
         }
+        li{
+            list-style: none;
+        }
+        body{
+            background-color:#edece8; 
+        }
+        .time-wrapper{
+            width: 6rem;
+            height: 3rem;
+            background-color: #f7f6f1;
+            margin: -.1rem auto;
+            position: relative;
+            border-radius: .3rem;
+            box-shadow:#ccc .03rem .03rem; 
+        }
+        .time-wrapper .words{
+            color: #8d8b86;
+            font-size: .4rem;
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            left: .3rem;
+            top: .4rem;
+        }
+        .time-wrapper .name{
+            color: #8d8b86;
+            font-size: .521rem;
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 1.2rem;
+            left: 2.4rem;
+        }
+        .time-wrapper .time{
+            color: #8d8b86;
+            font-size: .4rem;
+            font-family: 'Courier New', Courier, monospace;
+            position: absolute;
+            top: 2.2rem;
+            left: 1.3rem;
+        }
+        .time-wrapper .time li{
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -34,16 +76,62 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">LOVE<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">爱之初遇见</a></li>
-                <li><a href="ing.html">爱之进行时</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-    <canvas></canvas>
-    <script src="jquery-2.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+<div class="time-wrapper">
+    <div class="words">我们相爱至今已有:</div>
+    <div class="name">H&P</div>
+    <div class="time">
+        <ul>
+            <li id="day"></li>
+            <li id="hour"></li>
+            <li id="min"></li>
+            <li id="sec"></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/rem.js"></script>
 <script>
+    function show(){
+    MemorialDay=new Date("November 25,2017");
+    today=new Date();
+    // console.log(today.getTime());
+    // console.log(MemorialDay.getTime());
+    timeold=(today.getTime()-MemorialDay.getTime());
+    sectimeold=timeold/1000;
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000;
+    e_daysold=timeold/msPerDay;
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=Math.floor(e_hrsold);
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=Math.floor((e_hrsold-hrsold)*60);
+    seconds=Math.floor((e_minsold-minsold)*60);
+    // console.log(daysold,hrsold,minsold,seconds);
+    var day=document.getElementById('day');
+    var hour=document.getElementById('hour');
+    var min=document.getElementById('min');
+    var sec=document.getElementById('sec');
+    day.innerHTML=daysold+'天';
+    hour.innerHTML=hrsold+'时';
+    min.innerHTML=minsold+'分';
+    sec.innerHTML=seconds+'秒';
+    }
+    setInterval(function () {
+        show()
+    },1000);
 </script>
 </body>
 </html>
