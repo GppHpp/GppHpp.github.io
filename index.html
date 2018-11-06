@@ -16,19 +16,21 @@
             list-style: none;
         }
         body{
-            background-color:#edece8; 
+            background-color:rgb(242, 153, 89);
+            position: relative; 
         }
+        
         .time-wrapper{
             width: 6rem;
             height: 3rem;
-            background-color: #f7f6f1;
+            background-color: rgb(252, 214, 151);
             margin: -.1rem auto;
             position: relative;
             border-radius: .3rem;
-            box-shadow:#ccc .03rem .03rem; 
+            box-shadow:rgba(252, 214, 151, .5) .03rem .03rem; 
         }
         .time-wrapper .words{
-            color: #8d8b86;
+            color: rgb(236,110,116);
             font-size: .4rem;
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
@@ -36,7 +38,7 @@
             top: .4rem;
         }
         .time-wrapper .name{
-            color: #8d8b86;
+            color: rgb(236,110,116);
             font-size: .521rem;
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
@@ -44,7 +46,7 @@
             left: 2.4rem;
         }
         .time-wrapper .time{
-            color: #8d8b86;
+            color: rgb(236,110,116);
             font-size: .4rem;
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
@@ -53,6 +55,14 @@
         }
         .time-wrapper .time li{
             float: left;
+        }
+        #tutorial{
+            width: 6rem;
+            height: 3rem;
+            position: absolute;
+            left: 50%;
+            top: 5rem;
+            transform: translate(-50%,0);
         }
     </style>
 </head>
@@ -92,7 +102,7 @@
         </ul>
     </div>
 </div>
-
+<canvas id="tutorial"></canvas>
 
 
 
@@ -132,6 +142,23 @@
     setInterval(function () {
         show()
     },1000);
+    function draw(){
+    var canvas = document.getElementById('tutorial');
+    if(!canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle="rgb(252, 214, 151)";
+    ctx.fillRect(0, 10, 90,140);  //绘制矩形,填充的默认颜色为黑色
+    ctx.fillRect(105,10,90,140);
+    ctx.fillRect(210,10,90,140);
+
+    
+    ctx.clearRect(30,40,60,25);
+    ctx.clearRect(0,95,60,25);
+    ctx.clearRect(135,95,60,25);
+    ctx.clearRect(105,40,60,25);
+    ctx.clearRect(240,40,30,80);
+}
+draw();
 </script>
 </body>
 </html>
