@@ -19,12 +19,17 @@
             background-color:rgb(242, 153, 89);
             position: relative; 
         }
-        
+        .icon {
+            width: 1.8em; height: 1.8em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
         .time-wrapper{
             width: 6rem;
             height: 3rem;
             background-color: rgb(252, 214, 151);
-            margin: -.1rem auto;
+            margin: 0rem auto;
             position: relative;
             border-radius: .3rem;
             box-shadow:rgba(252, 214, 151, .5) .03rem .03rem; 
@@ -56,13 +61,53 @@
         .time-wrapper .time li{
             float: left;
         }
-        #tutorial{
+        #button-wrapper{
+            /* background: white; */
             width: 6rem;
-            height: 3rem;
+            height: 3.4rem;
             position: relative;
-            left: 50%;
             top: 1rem;
-            transform: translate(-50%,0);
+        }
+        #button-wrapper div{
+            width: 4rem;
+            height: .8rem;
+            background: rgb(252, 214, 151);
+            margin: 0 auto;
+            border-radius: .2rem;
+            margin-bottom: .5rem;
+            /* text-align: center; */
+            position: relative;
+        }
+        #button-wrapper p{
+            color: rgb(236,110,116);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: .35rem;
+            /* text-align: center; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #button-wrapper svg{
+            position: absolute;
+            top: 50%;
+            left: .2rem;
+            transform: translate(0,-50%);
+        }
+        #active{
+            animation: run 1s linear;
+        }
+        @keyframes run {
+            0%{
+
+            }
+            100%{
+                transform:translateX(3rem);
+                -ms-transform:translateX(3rem); 	
+                -moz-transform:translateX(3rem); 	
+                -webkit-transform:translateX(3rem);
+                -o-transform:translateX(3rem);
+            }
         }
     </style>
 </head>
@@ -86,6 +131,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">LOVE<span class="sr-only">(current)</span></a></li>
+                <li><a href="say.html">爱，说出来<span class="sr-only">(current)</span></a></li>
+                <li><a href="look.html">爱，你看<span class="sr-only">(current)</span></a></li>
+                <li><a href="write.html">爱，写下来<span class="sr-only">(current)</span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -102,8 +150,26 @@
         </ul>
     </div>
 </div>
-<canvas id="tutorial"></canvas>
-
+<div id="button-wrapper" class="container">
+    <div class="say">
+        <svg class="icon" aria-hidden="true" class="say-icon">
+            <use xlink:href="#icon-love"></use>
+        </svg>
+        <p>爱，说出来</p>
+    </div>
+    <div class="look">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-love-"></use>
+        </svg>
+        <p>爱，你看</p>
+    </div>
+    <div class="write">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-love-1"></use>
+        </svg>
+        <p>爱，写下来</p>
+    </div>
+</div>
 
 
 
@@ -111,6 +177,7 @@
 
 <script src="jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="icon/iconfont.js"></script>
 <script src="js/rem.js"></script>
 <script>
     function show(){
@@ -142,84 +209,24 @@
     setInterval(function () {
         show()
     },1000);
-    function draw(){
-    var canvas = document.getElementById('tutorial');
-    if(!canvas.getContext) return;
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle="rgb(252, 214, 151)";
-    ctx.fillRect(0, 10, 90,140);  //绘制矩形,填充的默认颜色为黑色
-    ctx.fillRect(105,10,90,140);
-    ctx.fillRect(210,10,90,140);
-}
-draw();
-function clear(){
-    var canvas = document.getElementById('tutorial');
-    if(!canvas.getContext) return;
-    var ctx = canvas.getContext("2d");
-    setTimeout(function five(){
-        for(var i=0;i<=60;i++){
-            dosettimeout(i);
-            for(var j=0;j<10000;j++){
-                for(var k=0;k<100;k++){
-                }
-            }
-        }
-        function dosettimeout(i){
-            setTimeout(function(){ctx.clearRect(30,40,i,25)},80);
-        }
-    },100)
-    setTimeout(function five2(){
-        for(var i=0;i<=60;i++){
-            dosettimeout(i);
-            for(var j=0;j<10000;j++){
-                for(var k=0;k<100;k++){
-                }
-            }
-        }
-        function dosettimeout(i){
-            setTimeout(function(){ctx.clearRect(0,95,i,25)},80);
-        }
-    },1000)
-    setTimeout(function five3(){
-        for(var i=0;i<=60;i++){
-            dosettimeout(i);
-            for(var j=0;j<10000;j++){
-                for(var k=0;k<100;k++){
-                }
-            }
-        }
-        function dosettimeout(i){
-            setTimeout(function(){ctx.clearRect(105,40,i,25)},80);
-        }
-    },2000)
-    setTimeout(function five4(){
-        for(var i=0;i<=60;i++){
-            dosettimeout(i);
-            for(var j=0;j<10000;j++){
-                for(var k=0;k<100;k++){
-                }
-            }
-        }
-        function dosettimeout(i){
-            setTimeout(function(){ctx.clearRect(135,95,i,25)},80);
-        }
-    },3000)
-    setTimeout(function five5(){
-        for(var i=0;i<=80;i++){
-            dosettimeout(i);
-            for(var j=0;j<10000;j++){
-                for(var k=0;k<100;k++){
-                }
-            }
-        }
-        function dosettimeout(i){
-            setTimeout(function(){ctx.clearRect(240,40,30,i)},80);
-        }
-    },4000)
-}
-$("#tutorial").click(function(){
-   clear();
-});
+    $(".say").click(function(){
+        $(".say").find("svg").attr("id","active");
+        setTimeout(function(){
+            location.href='say.html';
+        },1000)
+    });
+    $(".look").click(function(){
+        $(".look").find("svg").attr("id","active");
+        setTimeout(function(){
+            location.href='look.html';
+        },1000)
+    });
+    $(".write").click(function(){
+        $(".write").find("svg").attr("id","active");
+        setTimeout(function(){
+            location.href='write.html';
+        },1000)
+    });
 </script>
 </body>
 </html>
