@@ -19,23 +19,66 @@
             background-color:rgb(242, 153, 89);
             position: relative; 
         }
-        
-        #canvas-wrapper{
-            position: relative;
-            top: 1rem;
-        }
-        #tutorial{
+        #heart-wrapper{
             width: 6rem;
-            height: 3rem;
-            position: relative;
-            left: 50%;
-            transform: translate(-50%,0);
+            height: 6rem;
+            /* background-color: aqua; */
+            margin: 2rem auto;
+            position: relative; 
+            overflow: hidden;
         }
-        #canvas-wrapper p{
-            font-family: 'Courier New', Courier, monospace;
-            font-size: .3rem;
-            color: rgb(147,115,173);
-            text-align: center;
+        #heart-wrapper .heart-bottom{
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(252, 214, 151);
+            /* position: absolute; */
+            transform: rotate(45deg);
+            margin: 1.3rem auto;
+        }
+        #heart-wrapper .heart-left{
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(252, 214, 151);
+            position: absolute;
+            border-radius: 50%;
+            top: .3rem;
+            left: .5rem;
+            transform: translate(.04rem,.04rem); 
+        }
+        #heart-wrapper .heart-right{
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(252, 214, 151);
+            position: absolute;
+            border-radius: 50%;
+            top: .3rem;
+            transform: translate(.04rem,.04rem);
+            left: 2.5rem;
+        }
+        #heart-wrapper div{
+            animation: do 1.6s ease infinite normal;
+        }
+        @keyframes do{
+            0%{
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 .1rem rgb(252, 214, 151);
+            }
+            25%{
+                transform: scale(1.1) rotate(225deg);
+                box-shadow: 0 0 .1rem rgb(252, 214, 151);
+            }
+            50%{
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 .1rem rgb(252, 214, 151);
+            }
+            75%{
+                transform: scale(1.18) rotate(225deg);
+                box-shadow: 0 0 .1rem rgb(252, 214, 151);
+            }
+            100%{
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 .1rem rgb(252, 214, 151);
+            }
         }
     </style>
 </head>
@@ -66,7 +109,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
+<div id="heart-wrapper">
+    <div class="heart-left"></div>
+    <div class="heart-right"></div>
+    <div class="heart-bottom"></div>
+</div>
 
 
 

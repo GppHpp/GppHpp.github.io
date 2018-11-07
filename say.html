@@ -36,6 +36,19 @@
             font-size: .3rem;
             color: rgb(147,115,173);
             text-align: center;
+            margin-bottom: 1rem;
+        }
+        .words-wrapper{
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: .3rem;
+            color: rgb(147,115,173);
+            top: 2.2rem;
+            text-indent: .6rem;
+            display: none;
+        }
+        #actived{
+            display: block;
         }
     </style>
 </head>
@@ -69,6 +82,9 @@
 <div id="canvas-wrapper">
     <p>试着点一下下方的三个方块</p>
     <canvas id="tutorial"></canvas>
+</div>
+<div class="words-wrapper">
+    <p>我爱你，小泡泡，我会一直在你身边，每天都跟你说“我爱你”。</p>
 </div>
 
 
@@ -154,6 +170,9 @@ function clear(){
             setTimeout(function(){ctx.clearRect(240,40,30,i)},80);
         }
     },4000)
+    setTimeout(function(){
+        $(".words-wrapper").attr("id","actived");
+    },5000)
 }
 $("#tutorial").click(function(){
    clear();

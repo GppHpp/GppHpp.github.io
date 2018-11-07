@@ -102,11 +102,7 @@
 
             }
             100%{
-                transform:translateX(3rem);
-                -ms-transform:translateX(3rem); 	
-                -moz-transform:translateX(3rem); 	
-                -webkit-transform:translateX(3rem);
-                -o-transform:translateX(3rem);
+                margin-left: 3.5rem;
             }
         }
     </style>
@@ -213,18 +209,22 @@
         $(".say").find("svg").attr("id","active");
         setTimeout(function(){
             location.href='say.html';
+            $(".say").find("svg").attr("id","");
+            
         },1000)
     });
     $(".look").click(function(){
         $(".look").find("svg").attr("id","active");
         setTimeout(function(){
             location.href='look.html';
+            $(".look").find("svg").attr("id","");
         },1000)
     });
     $(".write").click(function(){
         $(".write").find("svg").attr("id","active");
         setTimeout(function(){
             location.href='write.html';
+            $(".write").find("svg").attr("id","");
         },1000)
     });
 </script>
