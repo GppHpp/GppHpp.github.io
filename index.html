@@ -114,7 +114,7 @@
 <script src="js/rem.js"></script>
 <script>
     function show(){
-    MemorialDay=new Date("November 25,2017");
+    MemorialDay=new Date("November 25,2017,00:06:00");
     today=new Date();
     // console.log(today.getTime());
     // console.log(MemorialDay.getTime());
@@ -150,15 +150,56 @@
     ctx.fillRect(0, 10, 90,140);  //绘制矩形,填充的默认颜色为黑色
     ctx.fillRect(105,10,90,140);
     ctx.fillRect(210,10,90,140);
-
-    
-    ctx.clearRect(30,40,60,25);
-    ctx.clearRect(0,95,60,25);
-    ctx.clearRect(135,95,60,25);
-    ctx.clearRect(105,40,60,25);
-    ctx.clearRect(240,40,30,80);
 }
 draw();
+function clear(){
+    var canvas = document.getElementById('tutorial');
+    if(!canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+    setTimeout(function five(){
+        for(var i=0;i<=60;i++){
+            dosettimeout(i);
+        }
+        function dosettimeout(i){
+            setTimeout(function(){ctx.clearRect(30,40,i,25)},80);
+        }
+    },100)
+    setTimeout(function five2(){
+        for(var i=0;i<=60;i++){
+            dosettimeout(i);
+        }
+        function dosettimeout(i){
+            setTimeout(function(){ctx.clearRect(0,95,i,25)},80);
+        }
+    },400)
+    setTimeout(function five3(){
+        for(var i=0;i<=60;i++){
+            dosettimeout(i);
+        }
+        function dosettimeout(i){
+            setTimeout(function(){ctx.clearRect(105,40,i,25)},80);
+        }
+    },700)
+    setTimeout(function five4(){
+        for(var i=0;i<=60;i++){
+            dosettimeout(i);
+        }
+        function dosettimeout(i){
+            setTimeout(function(){ctx.clearRect(135,95,i,25)},80);
+        }
+    },1100)
+    setTimeout(function five5(){
+        for(var i=0;i<=80;i++){
+            dosettimeout(i);
+        }
+        function dosettimeout(i){
+            setTimeout(function(){ctx.clearRect(240,40,30,i)},80);
+        }
+    },1400)
+}
+$("#tutorial").click(function(){
+   clear();
+});
 </script>
 </body>
 </html>
