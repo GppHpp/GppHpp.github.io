@@ -15,6 +15,16 @@
         li{
             list-style: none;
         }
+        a{
+            text-decoration: none;
+            color:inherit;
+        }
+        #goback{
+            font-size: .521rem;
+            color: rgb(147,115,173);
+            margin-left: .3rem;
+            margin-top: -.2rem;
+        }
         body{
             background-color:rgb(242, 153, 89);
             position: relative; 
@@ -36,6 +46,7 @@
             font-size: .3rem;
             color: rgb(147,115,173);
             text-align: center;
+            margin-top: -.2rem;
             margin-bottom: 1rem;
         }
         .words-wrapper{
@@ -44,6 +55,8 @@
             font-size: .3rem;
             color: rgb(147,115,173);
             top: 2.2rem;
+            margin: 0 auto;
+            width: 6rem;
             text-indent: .6rem;
             display: none;
         }
@@ -74,11 +87,12 @@
                 <li><a href="index.html">LOVE<span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="say.html">爱，说出来<span class="sr-only">(current)</span></a></li>
                 <li><a href="look.html">爱，你看<span class="sr-only">(current)</span></a></li>
-                <li><a href="write.html">爱，写下来<span class="sr-only">(current)</span></a></li>
+                <li><a href="write.html">爱，记下来<span class="sr-only">(current)</span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<a href="index.html"><i class="glyphicon glyphicon-chevron-left" id="goback"></i></a>
 <div id="canvas-wrapper">
     <p>试着点一下下方的三个方块</p>
     <canvas id="tutorial"></canvas>
